@@ -43,3 +43,8 @@ variable "download_host" {
   type = string
   default = "cloud-octopus-agent.obs.cn-north-4.myhuaweicloud.com"
 }
+
+variable "terraform_download_url" {
+  type = string
+  default = "https://releases.hashicorp.com/terraform/1.6.5/terraform_1.6.5_linux_amd64.zip"
+}

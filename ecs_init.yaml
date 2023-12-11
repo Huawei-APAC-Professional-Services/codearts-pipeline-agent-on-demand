@@ -9,8 +9,8 @@ packages:
  - curl
 
 runcmd:
- - curl -fsSL https://releases.hashicorp.com/terraform/1.6.5/terraform_1.6.5_linux_amd64.zip -o terraform_1.6.5_linux_amd64.zip
- - unzip terraform_1.6.5_linux_amd64.zip
+ - curl -fsSL ${terraform_download_url} -o terraform.zip
+ - unzip terraform.zip
  - mv terraform /usr/local/bin/
  - curl -fsSL https://get.docker.com -o install-docker.sh
  - sh install-docker.sh

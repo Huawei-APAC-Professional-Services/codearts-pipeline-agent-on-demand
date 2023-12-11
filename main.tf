@@ -25,6 +25,7 @@ data "template_file" "init" {
     project_id    = var.codearts_projectid
     region        = var.codearts_region
     download_host = var.download_host
+    terraform_download_url = var.terraform_download_url
   }
 }
 
