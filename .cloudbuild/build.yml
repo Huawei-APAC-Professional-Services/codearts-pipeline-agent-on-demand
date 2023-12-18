@@ -27,5 +27,5 @@ steps:
           terraform init
   - upload_artifact:
       inputs:
-        version: ${LineNumber}
+        version: ${PIPELINE_NUMBER}_${PIPELINE_ID}
         path: terraform.tfstate
