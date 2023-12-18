@@ -1,0 +1,31 @@
+---
+version: 2.0
+params:
+  - name: PIPELINE_NUMBER
+    value: ""
+  - name: PIPELINE_ID
+    value: ""
+  - name: terraform_download_url
+    value: "https://releases.hashicorp.com/terraform/1.6.5/terraform_1.6.5_linux_amd64.zip"
+steps:
+  PRE_BUILD:
+  - checkout:
+      name: "checkout"
+      inputs:
+        scm: "codehub"
+        url: "git@codehub.devcloud.ap-southeast-3.huaweicloud.com:hfa00001/codearts-pipeline-agent-on-demand.git"
+        branch: "main"
+        lfs: false
+        submodule: false
+  BUILD:
+  - sh:
+      name: "Install Terraform"
+      inputs:
+        command: |
+          curl -fsSL ${terraform_download_url} -o terraform.zip
+          unzip terraform.zip
+          terraform init
+  - upload_artifact:
+      inputs:
+        version: ${LineNumber}
+        path: terraform.tfstate
