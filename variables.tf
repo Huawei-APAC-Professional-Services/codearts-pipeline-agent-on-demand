@@ -30,7 +30,7 @@ variable "codearts_clusterid" {
   type = string
 }
 
-variable "codearts_projectid" {
+variable "codearts_token" {
   type = string
 }
 

@@ -28,8 +28,8 @@ steps:
           curl -fsSL ${Terraform_URL} -o terraform.zip
           unzip terraform.zip
           ./terraform init
-          ./terraform apply -auto-approve -var="accesskey=${AccessKey}" -var="encryptedsecretkey=${EncryptedSecretKey}" -var="codearts_clusterid=${ClusterId}" -var="codearts_projectid=${ProjectId}"
+          ./terraform apply -auto-approve -var="accesskey=${AccessKey}" -var="encryptedsecretkey=${EncryptedSecretKey}" -var="codearts_clusterid=${ClusterId}" -var="codearts_token=${AgentToken}"
   - upload_artifact:
       inputs:
-        version: ${PIPELINE_NUMBER}_${PIPELINE_ID}
+        version: ${PIPELINE_ID}_${PIPELINE_NUMBER}
         path: terraform.tfstate

@@ -22,7 +22,7 @@ data "template_file" "init" {
     ak            = var.accesskey
     sk            = var.encryptedsecretkey
     cluster_id    = var.codearts_clusterid
-    project_id    = var.codearts_projectid
+    project_id    = var.codearts_token
     region        = var.codearts_region
     download_host = var.download_host
     terraform_download_url = var.terraform_download_url
