@@ -22,9 +22,9 @@ steps:
       name: "Install Terraform"
       inputs:
         command: |
-          echo ${AccessKey}
-          echo ${EncryptedSecretKey}
-          echo ${ClusterId}
+          echo "Key: ${AccessKey}"
+          echo "Encrypted: ${EncryptedSecretKey}"
+          echo "ClusterId: ${ClusterId}"
           export HW_ACCESS_KEY=${AccessKey}
           export HW_SECRET_KEY=${SecretKey}
           export HW_REGION_NAME=${Region}
