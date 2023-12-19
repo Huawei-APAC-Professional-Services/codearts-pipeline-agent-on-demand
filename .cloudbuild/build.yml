@@ -31,5 +31,5 @@ steps:
           ./terraform apply -auto-approve -var="accesskey=${AccessKey}" -var="encryptedsecretkey=${EncryptedSecretKey}" -var="codearts_clusterid=${ClusterId}" -var="codearts_token=${AgentToken}"
   - upload_artifact:
       inputs:
-        version: ${PIPELINE_ID}_${PIPELINE_NUMBER}
+        version: ${PIPELINE_ID}-${PIPELINE_NUMBER}
         path: terraform.tfstate
