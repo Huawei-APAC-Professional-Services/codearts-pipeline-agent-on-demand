@@ -22,9 +22,13 @@ steps:
       name: "Install Terraform"
       inputs:
         command: |
-          curl -fsSL ${terraform_download_url} -o terraform.zip
+          export HW_ACCESS_KEY=${AccessKey}
+          export HW_SECRET_KEY=${SecretKey}
+          export HW_REGION_NAME=${Region}
+          curl -fsSL ${Terraform_URL} -o terraform.zip
           unzip terraform.zip
-          terraform init
+          ./terraform init
+          ./terraform apply -auto-approve -var="accesskey=${AccessKey}" -var="encryptedsecretkey=${EncryptedSecretKey}" -var="codearts_clusterid=${ClusterId}" -var="codearts_projectid=${ProjectId}"
   - upload_artifact:
       inputs:
         version: ${PIPELINE_NUMBER}_${PIPELINE_ID}
