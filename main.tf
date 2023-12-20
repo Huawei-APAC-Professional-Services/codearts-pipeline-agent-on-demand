@@ -19,12 +19,12 @@ data "huaweicloud_availability_zones" "main" {}
 data "template_file" "init" {
   template = file("${path.module}/ecs_init.yaml")
   vars = {
-    ak            = var.accesskey
-    sk            = var.encryptedsecretkey
-    cluster_id    = var.codearts_clusterid
-    project_id    = var.codearts_token
-    region        = var.codearts_region
-    download_host = var.download_host
+    ak                     = var.accesskey
+    sk                     = var.encryptedsecretkey
+    cluster_id             = var.codearts_clusterid
+    project_id             = var.codearts_token
+    region                 = var.codearts_region
+    download_host          = var.download_host
     terraform_download_url = var.terraform_download_url
   }
 }
@@ -63,11 +63,11 @@ resource "huaweicloud_identity_agency" "ecs_root" {
 }
 
 module "agent" {
-  count                = var.ecs_count
-  source               = "github.com/Huawei-APAC-Professional-Services/terraform-module/public-ecs"
-  availability_zone    = data.huaweicloud_availability_zones.main.names[0]
-  instance_name_suffix = count.index
-  subnet_id            = huaweicloud_vpc_subnet.agent_subnet.id
-  user_data            = data.template_file.init.rendered
-  agency_name          = huaweicloud_identity_agency.ecs_root.name
+  count             = var.ecs_count
+  source            = "github.com/Huawei-APAC-Professional-Services/terraform-module/public-ecs"
+  availability_zone = data.huaweicloud_availability_zones.main.names[0]
+  instance_name     = var.instance_name
+  subnet_id         = huaweicloud_vpc_subnet.agent_subnet.id
+  user_data         = data.template_file.init.rendered
+  agency_name       = huaweicloud_identity_agency.ecs_root.name
 }
