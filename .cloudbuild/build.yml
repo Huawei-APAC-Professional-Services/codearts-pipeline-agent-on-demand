@@ -23,7 +23,7 @@ steps:
       inputs:
         command: |
           echo "Key: ${AccessKey}"
-          echo "Encrypted: ${EncryptedSecretKey}"
+          echo "Encrypted: ${AgentSecretKey}"
           echo "ClusterId: ${ClusterId}"
           export HW_ACCESS_KEY=${AccessKey}
           export HW_SECRET_KEY=${SecretKey}
