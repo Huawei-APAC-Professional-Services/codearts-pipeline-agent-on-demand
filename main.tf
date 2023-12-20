@@ -66,7 +66,7 @@ module "agent" {
   count             = var.ecs_count
   source            = "github.com/Huawei-APAC-Professional-Services/terraform-module/public-ecs"
   availability_zone = data.huaweicloud_availability_zones.main.names[0]
-  instance_name     = var.instance_name
+  resource_name     = "${var.resource_name}${count.index}"
   subnet_id         = huaweicloud_vpc_subnet.agent_subnet.id
   user_data         = data.template_file.init.rendered
   agency_name       = huaweicloud_identity_agency.ecs_root.name
