@@ -33,7 +33,7 @@ steps:
           ./terraform init
           ./terraform apply -auto-approve -var="accesskey=${AccessKey}" -var="encryptedsecretkey=${AgentSecretKey}" -var="codearts_clusterid=${ClusterId}" -var="codearts_token=${AgentToken}" -var="resource_name=${PIPELINE_ID}-${PIPELINE_NUMBER}"
           echo "waiting some time for agent to register"
-          sleep 3m
+          sleep 2m
   - upload_artifact:
       inputs:
         version: ${PIPELINE_ID}-${PIPELINE_NUMBER}
