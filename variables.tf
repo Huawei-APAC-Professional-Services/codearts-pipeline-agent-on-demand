@@ -48,7 +48,3 @@ variable "terraform_download_url" {
   type    = string
   default = "https://releases.hashicorp.com/terraform/1.6.5/terraform_1.6.5_linux_amd64.zip"
 }
-
-variable "instance_name" {
-  type = string
-}
