@@ -31,7 +31,7 @@ steps:
           curl -fsSL ${Terraform_URL} -o terraform.zip
           unzip terraform.zip
           ./terraform init
-          ./terraform apply -auto-approve -var="accesskey=${AccessKey}" -var="encryptedsecretkey=${AgentSecretKey}" -var="codearts_clusterid=${ClusterId}" -var="codearts_token=${AgentToken}" -var="resource_name=${PIPELINE_ID}"
+          ./terraform apply -auto-approve -var="accesskey=${AccessKey}" -var="encryptedsecretkey=${AgentSecretKey}" -var="codearts_clusterid=${ClusterId}" -var="codearts_token=${AgentToken}" -var="resource_name=${PIPELINE_ID}-${PIPELINE_NUMBER}"
           echo "waiting some time for agent to register"
           sleep 3m
   - upload_artifact:
